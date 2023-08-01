@@ -1,29 +1,17 @@
 const audio = new Audio();
 const playlist = [];
 
-let currentSongIndex = 0;
 let isPlaying = false;
 let isSongSelected = false;
 let isLooping = false;
-// Canvas Variables
+
 const canvas = document.getElementById("my-canvas");
 const canvasContext = canvas.getContext("2d");
 const waveWidth = 2;
 const waveSpacing = 5;
-function showElement(elementId) {
-    const element = document.getElementById(elementId);
-    if (element) element.style.display = "block";
-}
 
-function hideElement(elementId) {
-    const element = document.getElementById(elementId);
-    if (element) element.style.display = "none";
-}
-
-// Canvas Color Variables
 const rainbowColors = ["red", "orange", "yellow", "green", "blue", "indigo", "violet", "hotpink", "cyan", "magenta", "lime", "crimson", "purple", "pink", "teal", "brown", "maroon", "olive", "navy", "skyblue", "lightgreen", "gold", "silver", "black", "white"];
 let rainbowColorIndex = 0;
-
 
 const audioContext = new (window.AudioContext || window.webkitAudioContext)();
 const analyser = audioContext.createAnalyser();
@@ -71,12 +59,10 @@ function drawWaves() {
     }
     rainbowColorIndex = (rainbowColorIndex + 1) % rainbowColors.length;
 
-    if (isPlaying || currentTime < totalTime) {
+    if (isPlaying || audio.currentTime < audio.duration) {
         requestAnimationFrame(drawWaves);
     }
 }
-
-
 
 function loadSong(index) {
     const { title, artist, file } =
@@ -264,11 +250,13 @@ window.addEventListener("load", () => {
 });
 
 function openCustomInputForm() {
-    showElement("customInputForm");
+    const element = document.getElementById("customInputForm");
+    if (element) element.style.display = "block";
 }
 
 function closeCustomInputForm() {
-    hideElement("customInputForm");
+    const element = document.getElementById("customInputForm");
+    if (element) element.style.display = "none";
 }
 
 function submitName() {
@@ -295,9 +283,11 @@ function submitName() {
 }
 
 function openCustomAlert() {
-    showElement("customAlert");
+    const element = document.getElementById("customAlert");
+    if (element) element.style.display = "block";
 }
 
 function closeCustomAlert() {
-    hideElement("customAlert");
+    const element = document.getElementById("customAlert");
+    if (element) element.style.display = "none";
 }
