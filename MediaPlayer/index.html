@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <title>Play Your Favorite Tunes with Our HTML Music Player | Enjoy Seamless Music Playback</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="music-player" id="music-player">
+            <div class="album-artwork">
+                <img src="album-artwork.jpg" alt="Album Artwork">
+            </div>
+            <div class="song-details">
+                <h3 class="song-title">Song Title</h3>
+                <p class="artist">Artist Name</p>
+                <div class="progress-bar" onclick="seek(event)">
+                    <div class="progress"></div>
+                </div>
+                <div class="current-time">
+                    <span id="current-time">0:00</span>
+                    <span> / </span>
+                    <span id="total-time">0:00</span>
+                </div>
+            </div>
+            <div class="controls">
+                <button class="control-btn" id="prev-btn">&#171;</button>
+                <button class="control-btn" id="play-pause-btn">&#9658;</button>
+                <button class="control-btn" id="next-btn">&#187;</button>
+                <button class="control-btn" id="loop-btn">&#8634;</button>
+                <input type="range" class="volume-slider" id="volume-slider" min="0" max="1" step="0.01" value="1">
+            </div>
+
+        </div>
+        <div class="playlist-container">
+            <div class="playlist">
+                <ul id="playlist">
+                </ul>
+                <div class="upload-song">
+                    <input type="file" id="file-upload" accept=".mp3">
+                    <label for="file-upload">Upload a Song</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
