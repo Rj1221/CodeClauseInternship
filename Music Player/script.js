@@ -20,37 +20,63 @@ function hideElement(elementId) {
     if (element) element.style.display = "none";
 }
 
-
 // Canvas Color Variables
-const rainbowColors = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"];
+const rainbowColors = ["red", "orange", "yellow", "green", "blue", "indigo", "violet", "hotpink", "cyan", "magenta", "lime", "crimson", "purple", "pink", "teal", "brown", "maroon", "olive", "navy", "skyblue", "lightgreen", "gold", "silver", "black", "white"];
 let rainbowColorIndex = 0;
 
+
+const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+const analyser = audioContext.createAnalyser();
+analyser.fftSize = 2048;
+const bufferLength = analyser.frequencyBinCount;
+const dataArray = new Uint8Array(bufferLength);
+
+const audioSource = audioContext.createMediaElementSource(audio);
+audioSource.connect(analyser);
+analyser.connect(audioContext.destination);
+
+const animationSpeed = 0.5;
+
 function drawWaves() {
-    if (isPlaying) {
-        canvasContext.clearRect(0, 0, canvas.width, canvas.height);
-        const currentTime = audio.currentTime;
-        const totalTime = audio.duration;
-        const progress = currentTime / totalTime;
+    canvasContext.clearRect(0, 0, canvas.width, canvas.height);
+    analyser.getByteFrequencyData(dataArray);
 
-        const numWaves = Math.floor(canvas.width / (waveWidth + waveSpacing));
-        const waveHeight = canvas.height * 0.5;
+    const currentTime = audio.currentTime;
+    const totalTime = audio.duration;
+    const progress = currentTime / totalTime;
 
-        for (let i = 0; i < numWaves; i++) {
-            const waveCenterX = i * (waveWidth + waveSpacing) + waveWidth * 0.5;
-            const waveAmplitude = waveHeight * Math.sin((progress + i) * Math.PI * 2);
-            const waveColor = rainbowColors[(i + rainbowColorIndex) % rainbowColors.length];
-            canvasContext.fillStyle = waveColor;
-            canvasContext.fillRect(
-                waveCenterX - waveWidth * 0.5,
-                waveHeight - waveAmplitude,
-                waveWidth,
-                waveAmplitude * 2
-            );
-        }
-        rainbowColorIndex = (rainbowColorIndex + 1) % rainbowColors.length;
+    const numWaves = Math.floor(canvas.width / (waveWidth + waveSpacing));
+    const waveHeight = canvas.height * 0.5;
+
+    for (let i = 0; i < numWaves; i++) {
+        const waveCenterX = i * (waveWidth + waveSpacing) + waveWidth * 0.5;
+        const waveAmplitude = waveHeight * 0.8;
+        const waveOffset = canvas.height * 0.5;
+        const dataArrayIndex = Math.floor((waveCenterX / canvas.width) * bufferLength);
+        const frequencyValue = dataArray[dataArrayIndex] / 255;
+
+        const waveFrequency = 0.9 + frequencyValue * 1.5;
+        const waveSpeed = animationSpeed * (1 + frequencyValue * 3);
+        const waveColor = rainbowColors[(i + rainbowColorIndex) % rainbowColors.length];
+
+        const waveY = waveOffset + waveAmplitude * Math.sin((waveCenterX * waveFrequency) + (progress * Math.PI * 2) * waveSpeed);
+
+        canvasContext.fillStyle = waveColor;
+        canvasContext.fillRect(
+            waveCenterX - waveWidth * 0.5,
+            waveY,
+            waveWidth,
+            canvas.height - waveY
+        );
     }
-    requestAnimationFrame(drawWaves);
+    rainbowColorIndex = (rainbowColorIndex + 1) % rainbowColors.length;
+
+    if (isPlaying || currentTime < totalTime) {
+        requestAnimationFrame(drawWaves);
+    }
 }
+
+
 function loadSong(index) {
     const { title, artist, file } =
         index === -1
