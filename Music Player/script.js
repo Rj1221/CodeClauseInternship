@@ -56,9 +56,13 @@ function drawWaves() {
         const waveFrequency = 0.9 + frequencyValue * 1.5;
         const waveSpeed = animationSpeed * (1 + frequencyValue * 3);
         const waveColor = rainbowColors[(i + rainbowColorIndex) % rainbowColors.length];
+        let waveY;
 
-        const waveY = waveOffset + waveAmplitude * (Math.sin((waveCenterX * waveFrequency) + (progress * Math.PI * 2) * waveSpeed) * 0.5 + Math.cos((waveCenterX * waveFrequency * 0.8) + (progress * Math.PI * 2) * (waveSpeed * 1.5)) * 0.5);
-
+        if (isPlaying) {
+            waveY = waveOffset + waveAmplitude * (frequencyValue * Math.sin((waveCenterX * waveFrequency) + (progress * Math.PI * 2) * waveSpeed));
+        } else {
+            waveY = waveOffset + waveAmplitude * frequencyValue;
+        }
         canvasContext.fillStyle = waveColor;
         canvasContext.fillRect(
             waveCenterX - waveWidth * 0.5,
@@ -69,9 +73,7 @@ function drawWaves() {
     }
     rainbowColorIndex = (rainbowColorIndex + 1) % rainbowColors.length;
 
-    if (isPlaying || audio.currentTime < audio.duration) {
-        // requestAnimationFrame(drawWaves);
-        // Continue drawing waves only if the song is playing and not finished
+    if (isPlaying && audio.currentTime < audio.duration) {
         animationFrameId = requestAnimationFrame(drawWaves);
     } else {
         cancelAnimationFrame(animationFrameId);
@@ -122,7 +124,7 @@ function playPause() {
 
     if (isPlaying) {
         audio.pause();
-        // canvasContext.clearRect(0, 0, canvas.width, canvas.height);
+        cancelAnimationFrame(animationFrameId);
     } else {
         audio.play();
         drawWaves();
