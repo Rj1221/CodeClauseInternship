@@ -99,6 +99,16 @@ ul {
   font-size: 12px;
   margin-top: 5px;
 }
+.control-btn.disabled {
+  cursor: not-allowed;
+  color: #ccc;
+}
+
+.choose-song-label {
+  color: #ff5c8a;
+  font-size: 14px;
+  margin-top: 10px;
+}
 
 .controls {
   display: flex;

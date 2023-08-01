@@ -24,24 +24,35 @@ function loadSong(index) {
     });
     document.getElementById("play-pause-btn").textContent = "❚❚";
     updateTotalTime();
-    audio.play(); // Automatically play the song when loaded
+    audio.play();
+
+    const playPauseBtn = document.getElementById("play-pause-btn");
+    playPauseBtn.disabled = false;
+    playPauseBtn.classList.remove("disabled");
+
+    const chooseSongLabel = document.getElementById("choose-song-label");
+    chooseSongLabel.style.display = "none";
 }
 
 function playPause() {
+    if (!isSongSelected) {
+        const chooseSongLabel = document.getElementById("choose-song-label");
+        chooseSongLabel.style.display = "block";
+        const playPauseBtn = document.getElementById("play-pause-btn");
+        playPauseBtn.disabled = true;
+        playPauseBtn.classList.add("disabled");
+        return;
+    }
+
     if (isPlaying) {
         audio.pause();
     } else {
-        if (!isSongSelected) {
-            loadSong(currentSongIndex); // If a song is not selected from the playlist, load the current song
-        } else {
-            audio.play(); // If a song is selected from the playlist, play the current song
-        }
+        audio.play();
     }
     isPlaying = !isPlaying;
     document.getElementById("play-pause-btn").textContent = isPlaying
         ? "❚❚"
         : "►";
-    isSongSelected = false; // Reset the flag after play/pause action
 }
 
 function prevSong() {
@@ -119,7 +130,7 @@ document.getElementById("file-upload").addEventListener("change", (event) => {
         listItem.textContent = songData.title;
         listItem.addEventListener("click", () => {
             loadSong(playlist.length - 1);
-            audio.play(); // Automatically play the song when loaded
+            audio.play();
         });
         playlistElement.appendChild(listItem);
     }
