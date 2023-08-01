@@ -100,11 +100,14 @@ function loadSong(index) {
     audio.addEventListener("loadedmetadata", () => {
         updateTotalTime();
         drawWaves();
+        audio.play();
     });
 
     document.getElementById("play-pause-btn").textContent = isPlaying ? "❚❚" : "►";
     updateTotalTime();
-    audio.play();
+    updateProgress();
+    updateCurrentTime();
+
 
     const playPauseBtn = document.getElementById("play-pause-btn");
     playPauseBtn.disabled = false;
