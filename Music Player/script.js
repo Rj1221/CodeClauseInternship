@@ -6,34 +6,44 @@ let isPlaying = false;
 let isSongSelected = false;
 let isLooping = false;
 
-// Canvas Variables
 const canvas = document.getElementById("my-canvas");
 const canvasContext = canvas.getContext("2d");
 const waveColor = "#2196f3";
 const waveWidth = 2;
 const waveSpacing = 5;
-// Waveform Function
+
+function showElement(elementId) {
+    const element = document.getElementById(elementId);
+    if (element) element.style.display = "block";
+}
+
+function hideElement(elementId) {
+    const element = document.getElementById(elementId);
+    if (element) element.style.display = "none";
+}
+
 function drawWaves() {
-    canvasContext.clearRect(0, 0, canvas.width, canvas.height);
-    const currentTime = audio.currentTime;
-    const totalTime = audio.duration;
-    const progress = currentTime / totalTime;
+    if (isPlaying) {
+        canvasContext.clearRect(0, 0, canvas.width, canvas.height);
+        const currentTime = audio.currentTime;
+        const totalTime = audio.duration;
+        const progress = currentTime / totalTime;
 
-    const numWaves = Math.floor(canvas.width / (waveWidth + waveSpacing));
-    const waveHeight = canvas.height * 0.5;
+        const numWaves = Math.floor(canvas.width / (waveWidth + waveSpacing));
+        const waveHeight = canvas.height * 0.5;
 
-    for (let i = 0; i < numWaves; i++) {
-        const waveCenterX = i * (waveWidth + waveSpacing) + waveWidth * 0.5;
-        const waveAmplitude = waveHeight * Math.sin((progress + i) * Math.PI * 2);
-        canvasContext.fillStyle = waveColor;
-        canvasContext.fillRect(
-            waveCenterX - waveWidth * 0.5,
-            waveHeight - waveAmplitude,
-            waveWidth,
-            waveAmplitude * 2
-        );
+        for (let i = 0; i < numWaves; i++) {
+            const waveCenterX = i * (waveWidth + waveSpacing) + waveWidth * 0.5;
+            const waveAmplitude = waveHeight * Math.sin((progress + i) * Math.PI * 2);
+            canvasContext.fillStyle = waveColor;
+            canvasContext.fillRect(
+                waveCenterX - waveWidth * 0.5,
+                waveHeight - waveAmplitude,
+                waveWidth,
+                waveAmplitude * 2
+            );
+        }
     }
-
     requestAnimationFrame(drawWaves);
 }
 
@@ -42,19 +52,24 @@ function loadSong(index) {
         index === -1
             ? { title: "Custom Song", artist: "Custom Artist", file: audio.src }
             : playlist[index];
+
     audio.src = file;
     document.querySelector(".song-title").textContent = title;
     document.querySelector(".artist").textContent = artist;
-    document.querySelectorAll(".playlist li").forEach((li, i) => {
+
+    playlist.forEach((_, i) => {
+        const li = document.querySelector(`.playlist li:nth-child(${i + 1})`);
         li.classList.toggle("active", i === index);
     });
+
     isSongSelected = true;
     isPlaying = true;
     audio.addEventListener("loadedmetadata", () => {
         updateTotalTime();
         drawWaves();
     });
-    document.getElementById("play-pause-btn").textContent = "❚❚";
+
+    document.getElementById("play-pause-btn").textContent = isPlaying ? "❚❚" : "►";
     updateTotalTime();
     audio.play();
 
@@ -62,14 +77,12 @@ function loadSong(index) {
     playPauseBtn.disabled = false;
     playPauseBtn.classList.remove("disabled");
 
-    const chooseSongLabel = document.getElementById("choose-song-label");
-    chooseSongLabel.style.display = "none";
+    hideElement("choose-song-label");
 }
 
 function playPause() {
     if (!isSongSelected) {
-        const chooseSongLabel = document.getElementById("choose-song-label");
-        chooseSongLabel.style.display = "block";
+        showElement("choose-song-label");
         const playPauseBtn = document.getElementById("play-pause-btn");
         playPauseBtn.disabled = true;
         playPauseBtn.classList.add("disabled");
@@ -84,9 +97,7 @@ function playPause() {
         drawWaves();
     }
     isPlaying = !isPlaying;
-    document.getElementById("play-pause-btn").textContent = isPlaying
-        ? "❚❚"
-        : "►";
+    document.getElementById("play-pause-btn").textContent = isPlaying ? "❚❚" : "►";
 }
 
 function prevSong() {
@@ -206,23 +217,6 @@ defaultPlaylist.forEach((song, index) => {
     playlistElement.appendChild(listItem);
 });
 
-const userName = prompt("Please enter your name:");
-if (userName) {
-    const date = new Date();
-    const hours = date.getHours();
-    let greeting;
-    if (hours >= 5 && hours < 12) {
-        greeting = "Good morning";
-    } else if (hours >= 12 && hours < 17) {
-        greeting = "Good afternoon";
-    } else if (hours >= 17 && hours < 21) {
-        greeting = "Good evening";
-    } else {
-        greeting = "Good night";
-    }
-    alert(`${greeting}, ${userName}! Welcome to the Advanced Music Player.`);
-}
-
 window.addEventListener("load", () => {
     const musicPlayer = document.getElementById("music-player");
     musicPlayer.style.opacity = 0;
@@ -234,4 +228,45 @@ window.addEventListener("load", () => {
             clearInterval(fadeInInterval);
         }
     }, 100);
+
+    openCustomInputForm();
 });
+
+function openCustomInputForm() {
+    showElement("customInputForm");
+}
+
+function closeCustomInputForm() {
+    hideElement("customInputForm");
+}
+
+function submitName() {
+    const userName = document.getElementById("inputField").value;
+    if (userName) {
+        const date = new Date();
+        const hours = date.getHours();
+        let greeting;
+        if (hours >= 5 && hours < 12) {
+            greeting = "Good morning";
+        } else if (hours >= 12 && hours < 17) {
+            greeting = "Good afternoon";
+        } else if (hours >= 17 && hours < 21) {
+            greeting = "Good evening";
+        } else {
+            greeting = "Good night";
+        }
+
+        const welcomeMessage = `${greeting}, ${userName}! Welcome to the Advanced Music Player.`;
+        document.querySelector(".alert-content h3").textContent = welcomeMessage;
+        openCustomAlert();
+        closeCustomInputForm();
+    }
+}
+
+function openCustomAlert() {
+    showElement("customAlert");
+}
+
+function closeCustomAlert() {
+    hideElement("customAlert");
+}
