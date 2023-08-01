@@ -6,6 +6,37 @@ let isPlaying = false;
 let isSongSelected = false;
 let isLooping = false;
 
+// Canvas Variables
+const canvas = document.getElementById("my-canvas");
+const canvasContext = canvas.getContext("2d");
+const waveColor = "#2196f3";
+const waveWidth = 2;
+const waveSpacing = 5;
+// Waveform Function
+function drawWaves() {
+    canvasContext.clearRect(0, 0, canvas.width, canvas.height);
+    const currentTime = audio.currentTime;
+    const totalTime = audio.duration;
+    const progress = currentTime / totalTime;
+
+    const numWaves = Math.floor(canvas.width / (waveWidth + waveSpacing));
+    const waveHeight = canvas.height * 0.5;
+
+    for (let i = 0; i < numWaves; i++) {
+        const waveCenterX = i * (waveWidth + waveSpacing) + waveWidth * 0.5;
+        const waveAmplitude = waveHeight * Math.sin((progress + i) * Math.PI * 2);
+        canvasContext.fillStyle = waveColor;
+        canvasContext.fillRect(
+            waveCenterX - waveWidth * 0.5,
+            waveHeight - waveAmplitude,
+            waveWidth,
+            waveAmplitude * 2
+        );
+    }
+
+    requestAnimationFrame(drawWaves);
+}
+
 function loadSong(index) {
     const { title, artist, file } =
         index === -1
@@ -21,6 +52,7 @@ function loadSong(index) {
     isPlaying = true;
     audio.addEventListener("loadedmetadata", () => {
         updateTotalTime();
+        drawWaves();
     });
     document.getElementById("play-pause-btn").textContent = "❚❚";
     updateTotalTime();
@@ -46,8 +78,10 @@ function playPause() {
 
     if (isPlaying) {
         audio.pause();
+        canvasContext.clearRect(0, 0, canvas.width, canvas.height);
     } else {
         audio.play();
+        drawWaves();
     }
     isPlaying = !isPlaying;
     document.getElementById("play-pause-btn").textContent = isPlaying
