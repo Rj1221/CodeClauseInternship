@@ -59,7 +59,7 @@ function drawWaves() {
         const waveSpeed = animationSpeed * (1 + frequencyValue * 3);
         const waveColor = rainbowColors[(i + rainbowColorIndex) % rainbowColors.length];
 
-        const waveY = waveOffset + waveAmplitude * Math.sin((waveCenterX * waveFrequency) + (progress * Math.PI * 2) * waveSpeed);
+        const waveY = waveOffset + waveAmplitude * (Math.sin((waveCenterX * waveFrequency) + (progress * Math.PI * 2) * waveSpeed) * 0.5 + Math.cos((waveCenterX * waveFrequency * 0.8) + (progress * Math.PI * 2) * (waveSpeed * 1.5)) * 0.5);
 
         canvasContext.fillStyle = waveColor;
         canvasContext.fillRect(
@@ -75,6 +75,7 @@ function drawWaves() {
         requestAnimationFrame(drawWaves);
     }
 }
+
 
 
 function loadSong(index) {
