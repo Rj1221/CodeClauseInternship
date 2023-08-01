@@ -5,13 +5,11 @@ let currentSongIndex = 0;
 let isPlaying = false;
 let isSongSelected = false;
 let isLooping = false;
-
+// Canvas Variables
 const canvas = document.getElementById("my-canvas");
 const canvasContext = canvas.getContext("2d");
-const waveColor = "#2196f3";
 const waveWidth = 2;
 const waveSpacing = 5;
-
 function showElement(elementId) {
     const element = document.getElementById(elementId);
     if (element) element.style.display = "block";
@@ -21,6 +19,11 @@ function hideElement(elementId) {
     const element = document.getElementById(elementId);
     if (element) element.style.display = "none";
 }
+
+
+// Canvas Color Variables
+const rainbowColors = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"];
+let rainbowColorIndex = 0;
 
 function drawWaves() {
     if (isPlaying) {
@@ -35,6 +38,7 @@ function drawWaves() {
         for (let i = 0; i < numWaves; i++) {
             const waveCenterX = i * (waveWidth + waveSpacing) + waveWidth * 0.5;
             const waveAmplitude = waveHeight * Math.sin((progress + i) * Math.PI * 2);
+            const waveColor = rainbowColors[(i + rainbowColorIndex) % rainbowColors.length];
             canvasContext.fillStyle = waveColor;
             canvasContext.fillRect(
                 waveCenterX - waveWidth * 0.5,
@@ -43,10 +47,10 @@ function drawWaves() {
                 waveAmplitude * 2
             );
         }
+        rainbowColorIndex = (rainbowColorIndex + 1) % rainbowColors.length;
     }
     requestAnimationFrame(drawWaves);
 }
-
 function loadSong(index) {
     const { title, artist, file } =
         index === -1
@@ -256,7 +260,7 @@ function submitName() {
             greeting = "Good night";
         }
 
-        const welcomeMessage = `${greeting}, ${userName}! Welcome to the Advanced Music Player.`;
+        const welcomeMessage = `${greeting}, ${userName}! Welcome to the Music Player.`;
         document.querySelector(".alert-content h3").textContent = welcomeMessage;
         openCustomAlert();
         closeCustomInputForm();
