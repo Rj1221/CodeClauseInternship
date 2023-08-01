@@ -9,6 +9,7 @@ const canvas = document.getElementById("my-canvas");
 const canvasContext = canvas.getContext("2d");
 const waveWidth = 2;
 const waveSpacing = 5;
+let animationFrameId;
 function showElement(elementId) {
     const element = document.getElementById(elementId);
     if (element) element.style.display = "block";
@@ -69,7 +70,11 @@ function drawWaves() {
     rainbowColorIndex = (rainbowColorIndex + 1) % rainbowColors.length;
 
     if (isPlaying || audio.currentTime < audio.duration) {
-        requestAnimationFrame(drawWaves);
+        // requestAnimationFrame(drawWaves);
+        // Continue drawing waves only if the song is playing and not finished
+        animationFrameId = requestAnimationFrame(drawWaves);
+    } else {
+        cancelAnimationFrame(animationFrameId);
     }
 }
 
@@ -117,7 +122,7 @@ function playPause() {
 
     if (isPlaying) {
         audio.pause();
-        canvasContext.clearRect(0, 0, canvas.width, canvas.height);
+        // canvasContext.clearRect(0, 0, canvas.width, canvas.height);
     } else {
         audio.play();
         drawWaves();
