@@ -4,11 +4,20 @@ const playlist = [];
 let isPlaying = false;
 let isSongSelected = false;
 let isLooping = false;
-
+let currentSongIndex = 0;
 const canvas = document.getElementById("my-canvas");
 const canvasContext = canvas.getContext("2d");
 const waveWidth = 2;
 const waveSpacing = 5;
+function showElement(elementId) {
+    const element = document.getElementById(elementId);
+    if (element) element.style.display = "block";
+}
+
+function hideElement(elementId) {
+    const element = document.getElementById(elementId);
+    if (element) element.style.display = "none";
+}
 
 const rainbowColors = ["red", "orange", "yellow", "green", "blue", "indigo", "violet", "hotpink", "cyan", "magenta", "lime", "crimson", "purple", "pink", "teal", "brown", "maroon", "olive", "navy", "skyblue", "lightgreen", "gold", "silver", "black", "white"];
 let rainbowColorIndex = 0;
