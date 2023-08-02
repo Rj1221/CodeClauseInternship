@@ -23,9 +23,9 @@ analyser.fftSize = 2048;
 const bufferLength = analyser.frequencyBinCount;
 const dataArray = new Uint8Array(bufferLength);
 // Adding the audio source
-// const audioSource = audioContext.createMediaElementSource(audio);
-// audioSource.connect(analyser);
-// analyser.connect(audioContext.destination);
+const audioSource = audioContext.createMediaElementSource(audio);
+audioSource.connect(analyser);
+analyser.connect(audioContext.destination);
 
 // For the audio visualizer
 const animationSpeed = 0.5;
@@ -122,8 +122,12 @@ function playPause() {
         audio.pause();
         cancelAnimationFrame(animationFrameId);
     } else {
-        audio.play();
-        drawWaves();
+        audioContext.resume().then(() => {
+            audio.play();
+            drawWaves();
+        }).catch((error) => {
+            console.error("Failed to resume the AudioContext:", error);
+        });
     }
     isPlaying = !isPlaying;
     document.getElementById("play-pause-btn").textContent = isPlaying
@@ -284,7 +288,12 @@ defaultPlaylist.forEach((song, index) => {
     listItem.textContent = song.title;
     listItem.addEventListener("click", () => {
         loadSong(index);
-        audio.play();
+        audioContext.resume().then(() => {
+            audio.play();
+            drawWaves();
+        }).catch((error) => {
+            console.error("Failed to resume the AudioContext:", error);
+        });
     });
     playlistElement.appendChild(listItem);
 });
