@@ -46,9 +46,9 @@ This repository contains a web-based Music Player application built using HTML, 
 
 The Music Player is designed to work on modern web browsers that support HTML5, CSS3, and JavaScript.
 
-## **Hosted Link**
+## 🎵 **Play some music**
 
-[Go to](https://raj-music-player.netlify.app/)
+[Let the beats play!](https://raj-music-player.netlify.app/)
 
 ## License
 
