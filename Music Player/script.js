@@ -6,6 +6,72 @@ let isPlaying = false;
 let isSongSelected = false;
 let isLooping = false;
 
+// Canvas
+const canvas = document.getElementById("my-canvas");
+const canvasContext = canvas.getContext("2d");
+const waveWidth = 2;
+const waveSpacing = 5;
+let animationFrameId;
+
+// Different colors for the waves
+const rainbowColors = ["red", "orange", "yellow", "green", "blue", "indigo", "violet", "hotpink", "cyan", "magenta", "lime", "crimson", "purple", "pink", "teal", "brown", "maroon", "olive", "navy", "skyblue", "lightgreen", "gold", "silver", "black", "white"];
+let rainbowColorIndex = 0;
+
+
+// For the audio visualizer
+const animationSpeed = 0.5;
+
+
+
+
+// For Generating the waves
+function drawWaves() {
+    canvasContext.clearRect(0, 0, canvas.width, canvas.height);
+    analyser.getByteFrequencyData(dataArray);
+
+    const currentTime = audio.currentTime;
+    const totalTime = audio.duration;
+    const progress = currentTime / totalTime;
+
+    const numWaves = Math.floor(canvas.width / (waveWidth + waveSpacing));
+    const waveHeight = canvas.height * 0.5;
+
+    for (let i = 0; i < numWaves; i++) {
+        const waveCenterX = i * (waveWidth + waveSpacing) + waveWidth * 0.5;
+        const waveAmplitude = waveHeight * 0.8;
+        const waveOffset = canvas.height * 0.5;
+        const dataArrayIndex = Math.floor((waveCenterX / canvas.width) * bufferLength);
+        const frequencyValue = dataArray[dataArrayIndex] / 255;
+
+        const waveFrequency = 0.9 + frequencyValue * 1.5;
+        const waveSpeed = animationSpeed * (1 + frequencyValue * 3);
+        const waveColor = rainbowColors[(i + rainbowColorIndex) % rainbowColors.length];
+        let waveY;
+
+        if (isPlaying) {
+            waveY = waveOffset + waveAmplitude * (frequencyValue * Math.sin((waveCenterX * waveFrequency) + (progress * Math.PI * 2) * waveSpeed));
+        } else {
+            waveY = waveOffset + waveAmplitude * frequencyValue;
+        }
+        canvasContext.fillStyle = waveColor;
+        canvasContext.fillRect(
+            waveCenterX - waveWidth * 0.5,
+            waveY,
+            waveWidth,
+            canvas.height - waveY
+        );
+    }
+    rainbowColorIndex = (rainbowColorIndex + 1) % rainbowColors.length;
+
+    if (isPlaying && audio.currentTime < audio.duration) {
+        animationFrameId = requestAnimationFrame(drawWaves);
+    } else {
+        cancelAnimationFrame(animationFrameId);
+    }
+}
+
+
+
 function loadSong(index) {
     const { title, artist, file } =
         index === -1
@@ -21,10 +87,13 @@ function loadSong(index) {
     isPlaying = true;
     audio.addEventListener("loadedmetadata", () => {
         updateTotalTime();
+        drawWaves();
+        audio.play();
     });
     document.getElementById("play-pause-btn").textContent = "❚❚";
     updateTotalTime();
-    audio.play();
+    updateProgress();
+    updateCurrentTime();
 
     const playPauseBtn = document.getElementById("play-pause-btn");
     playPauseBtn.disabled = false;
@@ -46,8 +115,10 @@ function playPause() {
 
     if (isPlaying) {
         audio.pause();
+        cancelAnimationFrame(animationFrameId);
     } else {
         audio.play();
+        drawWaves();
     }
     isPlaying = !isPlaying;
     document.getElementById("play-pause-btn").textContent = isPlaying
