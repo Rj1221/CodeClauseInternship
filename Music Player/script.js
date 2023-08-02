@@ -9,21 +9,26 @@ let isLooping = false;
 // Canvas
 const canvas = document.getElementById("my-canvas");
 const canvasContext = canvas.getContext("2d");
-const waveWidth = 2;
+const waveWidth = 5;
 const waveSpacing = 5;
 let animationFrameId;
 
 // Different colors for the waves
 const rainbowColors = ["red", "orange", "yellow", "green", "blue", "indigo", "violet", "hotpink", "cyan", "magenta", "lime", "crimson", "purple", "pink", "teal", "brown", "maroon", "olive", "navy", "skyblue", "lightgreen", "gold", "silver", "black", "white"];
 let rainbowColorIndex = 0;
-
+// For the audio visualizer
+const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+const analyser = audioContext.createAnalyser();
+analyser.fftSize = 2048;
+const bufferLength = analyser.frequencyBinCount;
+const dataArray = new Uint8Array(bufferLength);
+// Adding the audio source
+// const audioSource = audioContext.createMediaElementSource(audio);
+// audioSource.connect(analyser);
+// analyser.connect(audioContext.destination);
 
 // For the audio visualizer
 const animationSpeed = 0.5;
-
-
-
-
 // For Generating the waves
 function drawWaves() {
     canvasContext.clearRect(0, 0, canvas.width, canvas.height);
