@@ -92,3 +92,9 @@ footer a {
   display: flex;
   justify-content: center;
 }
+#newsletter {
+  background-color: #f7fafc;
+}
+#donate {
+  background-color: #f0f7ef;
+}

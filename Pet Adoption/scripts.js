@@ -1,3 +1,126 @@
+// Calender
+
+document.addEventListener('DOMContentLoaded', function () {
+    const calendarEl = document.getElementById('calendar');
+    const calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridMonth', // Display month view initially
+        height: '300px',
+        width: '50%',
+        contentHeight: 'auto',
+        eventMinHeight: 30,
+        eventMargin: 2,
+        events: [
+            {
+                title: 'Pet Adoption Workshop',
+                start: '2023-09-05',
+                end: '2023-09-05',
+                url: 'link_to_event_page'
+            },
+            {
+                title: 'Annual Fundraiser',
+                start: '2023-09-10',
+                end: '2023-09-12',
+                url: 'link_to_event_page'
+            },
+            {
+                title: 'Dog Training Session',
+                start: '2023-09-15',
+                end: '2023-09-15',
+                url: 'link_to_event_page'
+            },
+            {
+                title: 'Cat Adoption Event',
+                start: '2023-09-20',
+                end: '2023-09-20',
+                url: 'link_to_event_page'
+            },
+            {
+                title: 'Volunteer Orientation',
+                start: '2023-09-25',
+                end: '2023-09-25',
+                url: 'link_to_event_page'
+            },
+            {
+                title: 'Pet Grooming Workshop',
+                start: '2023-09-30',
+                end: '2023-09-30',
+                url: 'link_to_event_page'
+            },
+            {
+                title: 'Adopt-a-Rabbit Day',
+                start: '2023-10-10',
+                end: '2023-10-10',
+                url: 'link_to_event_page'
+            },
+            {
+                title: 'Puppy Playdate',
+                start: '2023-10-15',
+                end: '2023-10-15',
+                url: 'link_to_event_page'
+            },
+            {
+                title: 'Senior Pets Awareness Month',
+                start: '2023-11-01',
+                end: '2023-11-30',
+                url: 'link_to_event_page'
+            },
+            {
+                title: 'Holiday Adoption Special',
+                start: '2023-12-15',
+                end: '2023-12-31',
+                url: 'link_to_event_page'
+            },
+        ],
+        eventClick: function (info) {
+            window.open(info.event.url, '_blank'); // Open event URL in a new tab
+        }
+    });
+    calendar.render();
+});
+// Search
+document.addEventListener('DOMContentLoaded', function () {
+    const petCards = document.querySelectorAll('.pet-card');
+    const searchInput = document.getElementById('searchInput');
+    const filterDropdown = document.getElementById('filterDropdown');
+    function showAllCards() {
+        petCards.forEach(card => card.classList.add('show'));
+    }
+    function filterCards(category) {
+        petCards.forEach(card => {
+            if (category === 'all' || card.classList.contains(category)) {
+                card.style.display = 'block'; // Show the card
+            } else {
+                card.style.display = 'none'; // Hide the card
+            }
+        });
+    }
+    searchInput.addEventListener('input', function () {
+        const searchTerm = searchInput.value.trim().toLowerCase();
+
+        if (searchTerm === '') {
+            showAllCards();
+            return;
+        }
+
+        petCards.forEach(card => {
+            const cardText = card.innerText.toLowerCase();
+            if (cardText.includes(searchTerm)) {
+                card.style.display = 'block'; // Show the card
+            } else {
+                card.style.display = 'none'; // Hide the card
+            }
+        });
+    });
+
+
+    filterDropdown.addEventListener('change', function () {
+        const selectedCategory = filterDropdown.value;
+        filterCards(selectedCategory);
+    });
+
+    showAllCards();
+});
+
 const backToTopBtn = document.getElementById("backToTopBtn");
 
 window.onscroll = function () {
@@ -85,3 +208,15 @@ searchInput.addEventListener("input", applyFilters);
 speciesFilter.addEventListener("change", applyFilters);
 ageFilter.addEventListener("change", applyFilters);
 
+// NewsLetter
+const newsletterForm = document.getElementById("newsletterForm");
+const newsletterEmail = document.getElementById("newsletterEmail");
+
+newsletterForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+    const successMessage = document.createElement("p");
+    successMessage.textContent = "Thank you for subscribing to our newsletter!";
+    successMessage.classList.add("text-green-600", "mt-2");
+    newsletterForm.appendChild(successMessage);
+    newsletterEmail.value = "";
+});

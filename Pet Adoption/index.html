@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
     <title>Pet Adoption Center | Find Your Perfect Furry Companion | Adopt a Pet Today</title>
@@ -18,19 +19,19 @@
         <h1 class="text-3xl font-semibold">Pet Adoption</h1>
         <nav>
             <ul class="flex space-x-4">
-                <li><a href="#" class="hover:text-blue-200">Home</a></li>
+                <li><a href="index.html" class="hover:text-blue-200">Home</a></li>
                 <li><a href="#about" class="hover:text-blue-200">About</a></li>
                 <li><a href="#pets" class="hover:text-blue-200">Pets</a></li>
                 <li><a href="#contact" class="hover:text-blue-200">Contact</a></li>
+                <li><a href="#donate" class="hover:text-blue-200">Donate</a></li>
             </ul>
         </nav>
     </div>
 </header>
-
 <section id="about" class="py-12 bg-about bg-cover bg-center">
-    <div class="container mx-auto text-center">
-        <h2 class="text-4xl font-semibold mb-4" style="color: orangered;">About Us</h2>
-        <p class="max-w-lg mx-auto" style="color: black; font-size:1rem;font-weight: 500;">
+    <div class="container  text">
+        <h2 class="text-4xl font-semibold mb-4" style="color: #333333; margin-left:10rem;">About Us</h2>
+        <p class="max-w-md mx-10" style="color: black; font-size:1rem;font-weight: 500;">
             Welcome to our pet adoption center! We are dedicated to finding loving homes for pets in need.
             Our mission is to connect wonderful animals with compassionate families, creating a lifetime of happiness
             for both our furry friends and their new companions.
@@ -49,9 +50,20 @@
 <section id="pets" class="py-12 bg-pets bg-cover bg-center">
     <div class="container mx-auto text-center">
         <h2 class="text-4xl font-semibold mb-8">Available Pets</h2>
+        <div class="flex justify-center space-x-4 mb-4">
+            <input id="searchInput" type="text" placeholder="Search by name or details"
+                class="w-64 px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500">
+            <select id="filterDropdown" class="px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500">
+                <option value="all">All</option>
+                <option value="dog">Dogs</option>
+                <option value="cat">Cats</option>
+                <option value="rabbit">Rabbits</option>
+                <option value="hamster">Hamsters</option>
+            </select>
+        </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
             <!-- Pet 1 Card -->
-            <div class="bg-white p-6 rounded-lg shadow-md">
+            <div class="bg-white p-6 rounded-lg shadow-md pet-card dog">
                 <img src="./img/img1.jpg" alt="Pet 1" class="w-full mb-4 rounded-lg pet-card">
                 <h3 class="text-xl font-semibold mb-2">Dog</h3>
                 <p class="text-gray-700">Age: 2 years</p>
@@ -63,7 +75,7 @@
             </div>
 
             <!-- Pet 2 Card -->
-            <div class="bg-white p-6 rounded-lg shadow-md">
+            <div class="bg-white p-6 rounded-lg shadow-md pet-card cat">
                 <img src="./img/img2.jpeg" alt="Pet 2" class="w-full mb-4 rounded-lg pet-card">
                 <h3 class="text-xl font-semibold mb-2">Cat</h3>
                 <p class="text-gray-700">Age: 1 year</p>
@@ -75,7 +87,7 @@
             </div>
 
 
-            <div class="bg-white p-6 rounded-lg shadow-md">
+            <div class="bg-white p-6 rounded-lg shadow-md pet-card rabbit">
                 <img src="./img/img3.jpeg" alt="Pet 3" class="w-full mb-4 rounded-lg pet-card">
                 <h3 class="text-xl font-semibold mb-2">Rabbit</h3>
                 <p class="text-gray-700">Age: 1 years</p>
@@ -86,7 +98,7 @@
                     Now</button>
             </div>
 
-            <div class="bg-white p-6 rounded-lg shadow-md">
+            <div class="bg-white p-6 rounded-lg shadow-md pet-card hamster">
                 <img src="./img/img4.jpeg" alt="Pet 4" class="w-full mb-4 rounded-lg pet-card">
                 <h3 class="text-xl font-semibold mb-2">Hamster</h3>
                 <p class="text-gray-700">Age: 2 years</p>
@@ -97,7 +109,7 @@
                     Now</button>
             </div>
 
-            <div class="bg-white p-6 rounded-lg shadow-md">
+            <div class="bg-white p-6 rounded-lg shadow-md pet-card rabbit">
                 <img src="./img/img5.jpeg" alt="Pet 5" class="w-full mb-4 rounded-lg pet-card">
                 <h3 class="text-xl font-semibold mb-2">Rabbit</h3>
                 <p class="text-gray-700">Age: 2 years</p>
@@ -108,7 +120,7 @@
                     Now</button>
             </div>
 
-            <div class="bg-white p-6 rounded-lg shadow-md">
+            <div class="bg-white p-6 rounded-lg shadow-md pet-card rabbit">
                 <img src="./img/img6.jpeg" alt="Pet 6" class="w-full mb-4 rounded-lg pet-card">
                 <h3 class="text-xl font-semibold mb-2">Rabbit</h3>
                 <p class="text-gray-700">Age: 3 years</p>
@@ -118,6 +130,8 @@
                 <button class="mt-4 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md button">Adopt
                     Now</button>
             </div>
+        </div>
+    </div>
 
 </section>
 
@@ -222,6 +236,15 @@
     </div>
 </section>
 
+<section id="donate" class="py-12 bg-donate bg-cover bg-center">
+    <div class="container mx-auto text-center">
+        <h2 class="text-4xl font-semibold mb-4">Support Us Through Donations</h2>
+        <p class="text-gray-700 mb-6">Your contributions help us provide care, shelter, and love to our animals.</p>
+        <a href="link_to_donation_page"
+            class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-md button">Donate Now</a>
+    </div>
+</section>
+
 
 
 <button id="backToTopBtn" class="fixed bottom-4 right-4 bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md">
@@ -280,16 +303,41 @@
         </form>
     </div>
 </section>
+<section id="newsletter" class="py-12 bg-gray-100">
+    <div class="container mx-auto text-center">
+        <h2 class="text-4xl font-semibold mb-4">Subscribe to Our Newsletter</h2>
+        <p class="text-gray-700 mb-6">Stay updated with new arrivals, events, and adoption success stories!</p>
+        <form id="newsletterForm" class="max-w-md mx-auto">
+            <div class="flex items-center">
+                <input type="email" id="newsletterEmail" name="newsletterEmail"
+                    class="w-full px-4 py-2 border rounded-l-md focus:outline-none focus:border-blue-500"
+                    placeholder="Enter your email" required>
+                <button type="submit"
+                    class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-r-md button">Subscribe</button>
+            </div>
+        </form>
+    </div>
+</section>
+<section id="events" class="py-12 bg-gray-100">
+    <div class="container mx-auto text-center">
+        <h2 class="text-3xl font-semibold text-gray-800 mb-4">Upcoming Events</h2>
+        <div id="calendar" class="max-w-lg mx-auto"></div>
+        <p class="mt-4 text-gray-600">Stay informed about our upcoming events and join us in making a difference!</p>
+    </div>
+</section>
+
+
 <footer class="bg-gray-800 text-white py-6">
     <div class="container mx-auto text-center">
         <p>&copy; 2023 Pet Adoption. All rights reserved. | Follow us on <a href="URL_TO_FACEBOOK"
                 class="underline">Facebook</a>, <a href="URL_TO_INSTAGRAM" class="underline">Instagram</a>, and <a
-                href="URL_TO_TWITTER" class="underline">Twitter</a></p>
+                href="URL_TO_TWITTER" class="underline">Twitter</a> | <a href="privacy_policy.html"
+                class="underline">Privacy Policy</a> | <a href="terms_of_use.html" class="underline">Terms of Use</a>
+        </p>
     </div>
-
 </footer>
-
-
+<script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.js"></script>
 <script src="scripts.js"></script>
 </body>
 
