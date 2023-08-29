@@ -5,6 +5,7 @@
 ## Table of Contents
 
 - [MusicPlayer](#music-player)
+- [Pet Adoption Center Website](#pet-adoption-center-website)
 - [Code of Conduct](CODE_OF_CONDUCT.md)
 - [License](#license)
 
@@ -50,17 +51,46 @@ The Music Player is designed to work on modern web browsers that support HTML5, 
 
 [Let the beats play!](https://raj-music-player.netlify.app/)
 
-## License
-
-This project is licensed under the [MIT License](LICENSE), which means you're free to use, modify, and distribute the code as long as you include the original copyright and disclaimers. Refer to the LICENSE file for more details.
-
 ## Acknowledgments
 
 The wave visualizer in the Music Player is inspired by various audio visualizer techniques available in the web development community.
 
 **[⬆ Back to Top](#music-player)**
 
+**Task2**
+
+## Pet Adoption Center Website
+
+Welcome to the Pet Adoption Center website! This website serves as a platform for connecting animals in need of a loving home with compassionate families. The website features information about available pets, success stories, events, educational blog posts, and more.
+
+## Features
+
+- Browse and search for available pets by name, species, and age.
+- Read success stories of pets that found their forever homes through the adoption center.
+- Stay updated with upcoming events related to pet adoption and animal welfare.
+- Access informative blog posts on topics related to pet care and adoption.
+- Subscribe to the newsletter to receive news, event announcements, and more.
+
+## How to Use
+
+1. Clone this repository to your local machine.
+2. Open the `index.html` file in a web browser to access the website.
+
+## Technologies Used
+
+- HTML
+- CSS (Tailwind CSS framework)
+- JavaScript (for interactive elements and animations)
+- FullCalendar library for displaying upcoming events
+
+## Acknowledgements
+
+- Images used in this project are sourced from [Unsplash](https://unsplash.com/).
+- FullCalendar library for event calendar display.
+
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ## License
 
