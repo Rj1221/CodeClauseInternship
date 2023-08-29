@@ -14,331 +14,351 @@
     <title>Pet Adoption Center | Find Your Perfect Furry Companion | Adopt a Pet Today</title>
 </head>
 
-<header class="text-white py-4 px-4">
-    <div class="container mx-auto flex justify-between items-center">
-        <h1 class="text-3xl font-semibold">Pet Adoption</h1>
-        <nav>
-            <ul class="flex space-x-4">
-                <li><a href="index.html" class="hover:text-blue-200">Home</a></li>
-                <li><a href="#about" class="hover:text-blue-200">About</a></li>
-                <li><a href="#pets" class="hover:text-blue-200">Pets</a></li>
-                <li><a href="#contact" class="hover:text-blue-200">Contact</a></li>
-                <li><a href="#donate" class="hover:text-blue-200">Donate</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
-<section id="about" class="py-12 bg-about bg-cover bg-center">
-    <div class="container  text">
-        <h2 class="text-4xl font-semibold mb-4" style="color: #333333; margin-left:10rem;">About Us</h2>
-        <p class="max-w-md mx-10" style="color: black; font-size:1rem;font-weight: 500;">
-            Welcome to our pet adoption center! We are dedicated to finding loving homes for pets in need.
-            Our mission is to connect wonderful animals with compassionate families, creating a lifetime of happiness
-            for both our furry friends and their new companions.
-            <br><br>
-            Our team consists of passionate animal lovers who work tirelessly to provide the best care and attention
-            to every pet that comes through our doors. We believe that every animal deserves a chance to have a
-            safe, loving, and forever home, and we strive to make that dream a reality for as many pets as possible.
-            <br><br>
-            Whether you're looking for a loyal canine companion, a playful feline friend, or a small critter to
-            brighten your days, we're here to help you find the perfect match. Come visit us and become a part of our
-            heartwarming journey to unite pets with their forever families.
-        </p>
-    </div>
-</section>
-
-<section id="pets" class="py-12 bg-pets bg-cover bg-center">
-    <div class="container mx-auto text-center">
-        <h2 class="text-4xl font-semibold mb-8">Available Pets</h2>
-        <div class="flex justify-center space-x-4 mb-4">
-            <input id="searchInput" type="text" placeholder="Search by name or details"
-                class="w-64 px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500">
-            <select id="filterDropdown" class="px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500">
-                <option value="all">All</option>
-                <option value="dog">Dogs</option>
-                <option value="cat">Cats</option>
-                <option value="rabbit">Rabbits</option>
-                <option value="hamster">Hamsters</option>
-            </select>
+<body class="bg-gray-100">
+    <header class="text-white py-4 px-4 bg-orangered">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+            <h1 class="text-3xl font-semibold mb-2 md:mb-0">Pet Adoption</h1>
+            <nav class="mt-4 md:mt-0">
+                <ul class="flex space-x-4">
+                    <li><a href="index.html" class="hover:text-blue-200">Home</a></li>
+                    <li><a href="#about" class="hover:text-blue-200">About</a></li>
+                    <li><a href="#pets" class="hover:text-blue-200">Pets</a></li>
+                    <li><a href="#contact" class="hover:text-blue-200">Contact</a></li>
+                    <li><a href="#donate" class="hover:text-blue-200">Donate</a></li>
+                </ul>
+            </nav>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
-            <!-- Pet 1 Card -->
-            <div class="bg-white p-6 rounded-lg shadow-md pet-card dog">
-                <img src="./img/img1.jpg" alt="Pet 1" class="w-full mb-4 rounded-lg pet-card card">
-                <h3 class="text-xl font-semibold mb-2">Dog</h3>
-                <p class="text-gray-700">Age: 2 years</p>
-                <p class="text-gray-700 mt-2">Personality: Friendly and energetic</p>
-                <p class="text-gray-700">Habits: Loves long walks and playing fetch</p>
-                <p class="text-gray-700">Special Needs: None</p>
-                <button class="mt-4 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md button">Adopt
-                    Now</button>
+    </header>
+
+    <section id="about" class="py-12 bg-about bg-cover bg-center">
+        <div class="container text-center md:text-left mx-auto">
+            <h2 class="text-4xl font-semibold mb-4 md:ml-10" style="color: #333333;">About Us</h2>
+            <p class="max-w-md mx-auto md:mx-10" style="color: black; font-size: 1rem; font-weight: 500;">
+                Welcome to our pet adoption center! We are dedicated to finding loving homes for pets in need.
+                Our mission is to connect wonderful animals with compassionate families, creating a lifetime of
+                happiness
+                for both our furry friends and their new companions.
+                <br><br>
+                Our team consists of passionate animal lovers who work tirelessly to provide the best care and attention
+                to every pet that comes through our doors. We believe that every animal deserves a chance to have a
+                safe, loving, and forever home, and we strive to make that dream a reality for as many pets as possible.
+                <br><br>
+                Whether you're looking for a loyal canine companion, a playful feline friend, or a small critter to
+                brighten your days, we're here to help you find the perfect match. Come visit us and become a part of
+                our
+                heartwarming journey to unite pets with their forever families.
+            </p>
+        </div>
+    </section>
+
+    <section id="pets" class="py-12 bg-pets bg-cover bg-center">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-semibold mb-8">Available Pets</h2>
+            <div class="flex justify-center space-x-4 mb-4">
+                <input id="searchInput" type="text" placeholder="Search by name or details"
+                    class="w-64 px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500">
+                <select id="filterDropdown"
+                    class="px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500">
+                    <option value="all">All</option>
+                    <option value="dog">Dogs</option>
+                    <option value="cat">Cats</option>
+                    <option value="rabbit">Rabbits</option>
+                    <option value="hamster">Hamsters</option>
+                </select>
             </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
+                <!-- Pet 1 Card -->
+                <div class="bg-white p-6 rounded-lg shadow-md pet-card dog">
+                    <img src="./img/img1.jpg" alt="Pet 1" class="w-full mb-4 rounded-lg card">
+                    <h3 class="text-xl font-semibold mb-2">Dog</h3>
+                    <p class="text-gray-700">Age: 2 years</p>
+                    <p class="text-gray-700 mt-2">Personality: Friendly and energetic</p>
+                    <p class="text-gray-700">Habits: Loves long walks and playing fetch</p>
+                    <p class="text-gray-700">Special Needs: None</p>
+                    <button class="mt-4 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md button">Adopt
+                        Now</button>
+                </div>
 
-            <!-- Pet 2 Card -->
-            <div class="bg-white p-6 rounded-lg shadow-md pet-card cat">
-                <img src="./img/img2.jpeg" alt="Pet 2" class="w-full mb-4 rounded-lg pet-card card">
-                <h3 class="text-xl font-semibold mb-2">Cat</h3>
-                <p class="text-gray-700">Age: 1 year</p>
-                <p class="text-gray-700 mt-2">Personality: Playful and affectionate</p>
-                <p class="text-gray-700">Habits: Enjoys sunbathing and chasing toys</p>
-                <p class="text-gray-700">Special Needs: Requires a special diet</p>
-                <button class="mt-4 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md button">Adopt
-                    Now</button>
-            </div>
+                <!-- Pet 2 Card -->
+                <div class="bg-white p-6 rounded-lg shadow-md pet-card cat">
+                    <img src="./img/img2.jpeg" alt="Pet 2" class="w-full mb-4 rounded-lg  card">
+                    <h3 class="text-xl font-semibold mb-2">Cat</h3>
+                    <p class="text-gray-700">Age: 1 year</p>
+                    <p class="text-gray-700 mt-2">Personality: Playful and affectionate</p>
+                    <p class="text-gray-700">Habits: Enjoys sunbathing and chasing toys</p>
+                    <p class="text-gray-700">Special Needs: Requires a special diet</p>
+                    <button class="mt-4 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md button">Adopt
+                        Now</button>
+                </div>
 
 
-            <div class="bg-white p-6 rounded-lg shadow-md pet-card rabbit">
-                <img src="./img/img3.jpeg" alt="Pet 3" class="w-full mb-4 rounded-lg pet-card card">
-                <h3 class="text-xl font-semibold mb-2">Rabbit</h3>
-                <p class="text-gray-700">Age: 1 years</p>
-                <p class="text-gray-700 mt-2">Personality: Gentle and curious</p>
-                <p class="text-gray-700">Habits: Enjoys hopping around and nibbling on greens</p>
-                <p class="text-gray-700">Special Needs: Needs a spacious enclosure to play</p>
-                <button class="mt-4 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md button">Adopt
-                    Now</button>
-            </div>
+                <div class="bg-white p-6 rounded-lg shadow-md pet-card rabbit">
+                    <img src="./img/img3.jpeg" alt="Pet 3" class="w-full mb-4 rounded-lg  card">
+                    <h3 class="text-xl font-semibold mb-2">Rabbit</h3>
+                    <p class="text-gray-700">Age: 1 years</p>
+                    <p class="text-gray-700 mt-2">Personality: Gentle and curious</p>
+                    <p class="text-gray-700">Habits: Enjoys hopping around and nibbling on greens</p>
+                    <p class="text-gray-700">Special Needs: Needs a spacious enclosure to play</p>
+                    <button class="mt-4 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md button">Adopt
+                        Now</button>
+                </div>
 
-            <div class="bg-white p-6 rounded-lg shadow-md pet-card hamster">
-                <img src="./img/img4.jpeg" alt="Pet 4" class="w-full mb-4 rounded-lg pet-card card">
-                <h3 class="text-xl font-semibold mb-2">Hamster</h3>
-                <p class="text-gray-700">Age: 2 years</p>
-                <p class="text-gray-700 mt-2">Personality: Curious and active</p>
-                <p class="text-gray-700">Habits: Loves running on the wheel and exploring tunnels</p>
-                <p class="text-gray-700">Special Needs: Provide a variety of enrichment toys</p>
-                <button class="mt-4 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md button">Adopt
-                    Now</button>
-            </div>
+                <div class="bg-white p-6 rounded-lg shadow-md pet-card hamster">
+                    <img src="./img/img4.jpeg" alt="Pet 4" class="w-full mb-4 rounded-lg  card">
+                    <h3 class="text-xl font-semibold mb-2">Hamster</h3>
+                    <p class="text-gray-700">Age: 2 years</p>
+                    <p class="text-gray-700 mt-2">Personality: Curious and active</p>
+                    <p class="text-gray-700">Habits: Loves running on the wheel and exploring tunnels</p>
+                    <p class="text-gray-700">Special Needs: Provide a variety of enrichment toys</p>
+                    <button class="mt-4 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md button">Adopt
+                        Now</button>
+                </div>
 
-            <div class="bg-white p-6 rounded-lg shadow-md pet-card rabbit">
-                <img src="./img/img5.jpeg" alt="Pet 5" class="w-full mb-4 rounded-lg pet-card card">
-                <h3 class="text-xl font-semibold mb-2">Rabbit</h3>
-                <p class="text-gray-700">Age: 2 years</p>
-                <p class="text-gray-700 mt-2">Personality: Gentle and curious</p>
-                <p class="text-gray-700">Habits: Enjoys hopping around and nibbling on greens</p>
-                <p class="text-gray-700">Special Needs: Needs a spacious enclosure to play</p>
-                <button class="mt-4 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md button">Adopt
-                    Now</button>
-            </div>
+                <div class="bg-white p-6 rounded-lg shadow-md pet-card rabbit">
+                    <img src="./img/img5.jpeg" alt="Pet 5" class="w-full mb-4 rounded-lg  card">
+                    <h3 class="text-xl font-semibold mb-2">Rabbit</h3>
+                    <p class="text-gray-700">Age: 2 years</p>
+                    <p class="text-gray-700 mt-2">Personality: Gentle and curious</p>
+                    <p class="text-gray-700">Habits: Enjoys hopping around and nibbling on greens</p>
+                    <p class="text-gray-700">Special Needs: Needs a spacious enclosure to play</p>
+                    <button class="mt-4 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md button">Adopt
+                        Now</button>
+                </div>
 
-            <div class="bg-white p-6 rounded-lg shadow-md pet-card rabbit">
-                <img src="./img/img6.jpeg" alt="Pet 6" class="w-full mb-4 rounded-lg pet-card card">
-                <h3 class="text-xl font-semibold mb-2">Rabbit</h3>
-                <p class="text-gray-700">Age: 3 years</p>
-                <p class="text-gray-700 mt-2">Personality: Gentle and curious</p>
-                <p class="text-gray-700">Habits: Enjoys hopping around and nibbling on greens</p>
-                <p class="text-gray-700">Special Needs: Needs a spacious enclosure to play</p>
-                <button class="mt-4 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md button">Adopt
-                    Now</button>
+                <div class="bg-white p-6 rounded-lg shadow-md pet-card rabbit">
+                    <img src="./img/img6.jpeg" alt="Pet 6" class="w-full mb-4 rounded-lg  card">
+                    <h3 class="text-xl font-semibold mb-2">Rabbit</h3>
+                    <p class="text-gray-700">Age: 3 years</p>
+                    <p class="text-gray-700 mt-2">Personality: Gentle and curious</p>
+                    <p class="text-gray-700">Habits: Enjoys hopping around and nibbling on greens</p>
+                    <p class="text-gray-700">Special Needs: Needs a spacious enclosure to play</p>
+                    <button class="mt-4 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md button">Adopt
+                        Now</button>
+                </div>
             </div>
         </div>
-    </div>
 
-</section>
+    </section>
 
 
-<section id="testimonials" class="py-12 bg-white px-4">
-    <div class="container mx-auto text-center">
-        <h2 class="text-4xl font-semibold mb-8">Success Stories</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+    <section id="testimonials" class="py-12 bg-white px-4">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-semibold mb-8">Success Stories</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-100 p-6 rounded-lg shadow-md pet-card">
+                    <div class="mb-4">
+                        <img src="./img/p1.jpeg" alt="Mukesh Ambani's Testimonial"
+                            class="w-20 h-20 mx-auto rounded-full">
+                    </div>
+                    <p class="text-gray-700 italic">"Adopting my dog from Pet Adoption was the best decision I've made.
+                        He's
+                        brought so much joy and love into my life. Thank you for the opportunity to give a home to a
+                        wonderful furry friend!"</p>
+                    <p class="mt-2 font-semibold">- Mukesh Ambani</p>
+                </div>
+                <div class="bg-gray-100 p-6 rounded-lg shadow-md pet-card">
+                    <div class="mb-4">
+                        <img src="./img/p2.jpg" alt="Abhishek Bachchan's Testimonial"
+                            class="w-20 h-20 mx-auto rounded-full">
+                    </div>
+                    <p class="text-gray-700 italic">"Our family couldn't be happier with our adopted cat. She's brought
+                        laughter and comfort to our home. Thank you to the Pet Adoption team for making the process so
+                        smooth!"</p>
+                    <p class="mt-2 font-semibold">- Abhishek Bachchan</p>
+                </div>
+                <div class="bg-gray-100 p-6 rounded-lg shadow-md pet-card">
+                    <div class="mb-4">
+                        <img src="./img/p3.jpg" alt="Narendra Modi's Testimonial"
+                            class="w-20 h-20 mx-auto rounded-full">
+                    </div>
+                    <p class="text-gray-700 italic">"Adopting our rabbit from Pet Adoption was a life-changing
+                        experience.
+                        Our family has grown closer, and our rabbit has become a beloved member. Thank you for making
+                        this
+                        possible!"</p>
+                    <p class="mt-2 font-semibold">- Narendra Modi</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="py-12 px-4 bg-gray-100">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-semibold text-center mb-8">Frequently Asked Questions</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white p-4 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-2 flex items-center cursor-pointer accordion-toggle">
+                        How can I adopt a pet?
+                        <span class="ml-auto accordion-icon">+</span>
+                    </h3>
+                    <div class="accordion-content">
+                        <p class="text-gray-700">Our adoption process is designed to be simple and rewarding. You can
+                            start
+                            by browsing our available pets, selecting one that matches your preferences, and filling out
+                            an
+                            adoption application. Our team will guide you through the rest of the process.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-4 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-2 flex items-center cursor-pointer accordion-toggle">
+                        What is the adoption fee?
+                        <span class="ml-auto accordion-icon">+</span>
+                    </h3>
+                    <div class="accordion-content">
+                        <p class="text-gray-700">The adoption fee includes the cost of vaccinations, spaying or
+                            neutering,
+                            microchipping, a wellness check, and a starter pack of essentials for your new pet.</p>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <section id="blog" class="py-12 px-4 bg-white">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-semibold text-center mb-8">Latest Blog Posts</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-gray-100 p-6 rounded-lg shadow-md pet-card">
+                    <img src="./img/blog1.png" alt="Blog Post 1" class="w-full mb-4 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-2">Caring for Your New Feline Friend</h3>
+                    <p class="text-gray-700">Learn the essential tips and tricks for providing a happy and healthy home
+                        for
+                        your newly adopted cat.</p>
+                    <a href="link_to_blog_post1" class="mt-4 block text-blue-500 hover:underline">Read More</a>
+                </div>
+                <div class="bg-gray-100 p-6 rounded-lg shadow-md pet-card">
+                    <img src="./img/blog2.jpeg" alt="Blog Post 1" class="w-full mb-4 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-2">Caring for Your New Feline Friend</h3>
+                    <p class="text-gray-700">Learn the essential tips and tricks for providing a happy and healthy home
+                        for
+                        your newly adopted cat.</p>
+                    <a href="link_to_blog_post1" class="mt-4 block text-blue-500 hover:underline">Read More</a>
+                </div>
+                <div class="bg-gray-100 p-6 rounded-lg shadow-md pet-card">
+                    <img src="./img/blog3.jpeg" alt="Blog Post 1" class="w-full mb-4 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-2">Caring for Your New Feline Friend</h3>
+                    <p class="text-gray-700">Learn the essential tips and tricks for providing a happy and healthy home
+                        for
+                        your newly adopted cat.</p>
+                    <a href="link_to_blog_post1" class="mt-4 block text-blue-500 hover:underline">Read More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="donate" class="py-12 bg-donate bg-cover bg-center">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-semibold mb-4">Support Us Through Donations</h2>
+            <p class="text-gray-700 mb-6">Your contributions help us provide care, shelter, and love to our animals.</p>
+            <a href="link_to_donation_page"
+                class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-md button">Donate Now</a>
+        </div>
+    </section>
+
+
+
+    <button id="backToTopBtn"
+        class="fixed bottom-4 right-4 bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+
+    <section id="videos" class="py-12 bg-video bg-cover bg-center">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-semibold mb-8">Videos</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 px-4">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/L8Kjh3riNvw" frameborder="0"
+                        allowfullscreen></iframe>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/-UoG2K8zSNw" frameborder="0"
+                        allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="location" class="py-12 text-center">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-semibold mb-8">Visit Our Center</h2>
+            <div class="iframe-container mx-auto">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15516.82073162124!2d77.60318575!3d13.08923975!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae14c40352df3f%3A0x53ad9432de4c3c35!2sReva%20University%2C%20Yelahanka%20Campus!5e0!3m2!1sen!2sin!4v1628726527713!5m2!1sen!2sin"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="contact" class="py-12 bg-contact bg-cover bg-center">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-semibold mb-4">Contact Us</h2>
+            <form class="max-w-md mx-auto">
                 <div class="mb-4">
-                    <img src="./img/p1.jpeg" alt="Mukesh Ambani's Testimonial" class="w-20 h-20 mx-auto rounded-full">
+                    <label for="name" class="block text-gray-700 font-medium mb-2">Name</label>
+                    <input type="text" id="name" name="name"
+                        class="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500" required>
                 </div>
-                <p class="text-gray-700 italic">"Adopting my dog from Pet Adoption was the best decision I've made. He's
-                    brought so much joy and love into my life. Thank you for the opportunity to give a home to a
-                    wonderful furry friend!"</p>
-                <p class="mt-2 font-semibold">- Mukesh Ambani</p>
-            </div>
-            <div class="bg-gray-100 p-6 rounded-lg shadow-md">
                 <div class="mb-4">
-                    <img src="./img/p2.jpg" alt="Abhishek Bachchan's Testimonial"
-                        class="w-20 h-20 mx-auto rounded-full">
+                    <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                    <input type="email" id="email" name="email"
+                        class="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500" required>
                 </div>
-                <p class="text-gray-700 italic">"Our family couldn't be happier with our adopted cat. She's brought
-                    laughter and comfort to our home. Thank you to the Pet Adoption team for making the process so
-                    smooth!"</p>
-                <p class="mt-2 font-semibold">- Abhishek Bachchan</p>
-            </div>
-            <div class="bg-gray-100 p-6 rounded-lg shadow-md">
-                <div class="mb-4">
-                    <img src="./img/p3.jpg" alt="Narendra Modi's Testimonial" class="w-20 h-20 mx-auto rounded-full">
+                <div class="mb-6">
+                    <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
+                    <textarea id="message" name="message"
+                        class="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500" rows="4"
+                        required></textarea>
                 </div>
-                <p class="text-gray-700 italic">"Adopting our rabbit from Pet Adoption was a life-changing experience.
-                    Our family has grown closer, and our rabbit has become a beloved member. Thank you for making this
-                    possible!"</p>
-                <p class="mt-2 font-semibold">- Narendra Modi</p>
-            </div>
+                <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md button">Send
+                    Message</button>
+            </form>
         </div>
-    </div>
-</section>
-
-<section id="faq" class="py-12 px-4 bg-gray-100">
-    <div class="container mx-auto">
-        <h2 class="text-4xl font-semibold text-center mb-8">Frequently Asked Questions</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="bg-white p-4 rounded-lg shadow-md">
-                <h3 class="text-xl font-semibold mb-2 flex items-center cursor-pointer accordion-toggle">
-                    How can I adopt a pet?
-                    <span class="ml-auto accordion-icon">+</span>
-                </h3>
-                <div class="accordion-content">
-                    <p class="text-gray-700">Our adoption process is designed to be simple and rewarding. You can start
-                        by browsing our available pets, selecting one that matches your preferences, and filling out an
-                        adoption application. Our team will guide you through the rest of the process.</p>
+    </section>
+    <section id="newsletter" class="py-12 bg-gray-100">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-semibold mb-4">Subscribe to Our Newsletter</h2>
+            <p class="text-gray-700 mb-6">Stay updated with new arrivals, events, and adoption success stories!</p>
+            <form id="newsletterForm" class="max-w-md mx-auto">
+                <div class="flex items-center">
+                    <input type="email" id="newsletterEmail" name="newsletterEmail"
+                        class="w-full px-4 py-2 border rounded-l-md focus:outline-none focus:border-blue-500"
+                        placeholder="Enter your email" required>
+                    <button type="submit"
+                        class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-r-md button">Subscribe</button>
                 </div>
-            </div>
-
-            <div class="bg-white p-4 rounded-lg shadow-md">
-                <h3 class="text-xl font-semibold mb-2 flex items-center cursor-pointer accordion-toggle">
-                    What is the adoption fee?
-                    <span class="ml-auto accordion-icon">+</span>
-                </h3>
-                <div class="accordion-content">
-                    <p class="text-gray-700">The adoption fee includes the cost of vaccinations, spaying or neutering,
-                        microchipping, a wellness check, and a starter pack of essentials for your new pet.</p>
-                </div>
-            </div>
-
-
-
+            </form>
         </div>
-    </div>
-</section>
-
-
-
-<section id="blog" class="py-12 px-4 bg-white">
-    <div class="container mx-auto">
-        <h2 class="text-4xl font-semibold text-center mb-8">Latest Blog Posts</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="bg-gray-100 p-6 rounded-lg shadow-md">
-                <img src="./img/blog1.png" alt="Blog Post 1" class="w-full mb-4 rounded-lg">
-                <h3 class="text-xl font-semibold mb-2">Caring for Your New Feline Friend</h3>
-                <p class="text-gray-700">Learn the essential tips and tricks for providing a happy and healthy home for
-                    your newly adopted cat.</p>
-                <a href="link_to_blog_post1" class="mt-4 block text-blue-500 hover:underline">Read More</a>
-            </div>
-            <div class="bg-gray-100 p-6 rounded-lg shadow-md">
-                <img src="./img/blog2.jpeg" alt="Blog Post 1" class="w-full mb-4 rounded-lg">
-                <h3 class="text-xl font-semibold mb-2">Caring for Your New Feline Friend</h3>
-                <p class="text-gray-700">Learn the essential tips and tricks for providing a happy and healthy home for
-                    your newly adopted cat.</p>
-                <a href="link_to_blog_post1" class="mt-4 block text-blue-500 hover:underline">Read More</a>
-            </div>
-            <div class="bg-gray-100 p-6 rounded-lg shadow-md">
-                <img src="./img/blog3.jpeg" alt="Blog Post 1" class="w-full mb-4 rounded-lg">
-                <h3 class="text-xl font-semibold mb-2">Caring for Your New Feline Friend</h3>
-                <p class="text-gray-700">Learn the essential tips and tricks for providing a happy and healthy home for
-                    your newly adopted cat.</p>
-                <a href="link_to_blog_post1" class="mt-4 block text-blue-500 hover:underline">Read More</a>
-            </div>
+    </section>
+    <section id="events" class="py-12 bg-gray-100">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-semibold text-gray-800 mb-4">Upcoming Events</h2>
+            <div id="calendar" class="max-w-lg mx-auto"></div>
+            <p class="mt-4 text-gray-600">Stay informed about our upcoming events and join us in making a difference!
+            </p>
         </div>
-    </div>
-</section>
-
-<section id="donate" class="py-12 bg-donate bg-cover bg-center">
-    <div class="container mx-auto text-center">
-        <h2 class="text-4xl font-semibold mb-4">Support Us Through Donations</h2>
-        <p class="text-gray-700 mb-6">Your contributions help us provide care, shelter, and love to our animals.</p>
-        <a href="link_to_donation_page"
-            class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-md button">Donate Now</a>
-    </div>
-</section>
+    </section>
 
 
-
-<button id="backToTopBtn" class="fixed bottom-4 right-4 bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md">
-    <i class="fas fa-arrow-up"></i>
-</button>
-
-
-<section id="videos" class="py-12 bg-video bg-cover bg-center">
-    <div class="container mx-auto text-center">
-        <h2 class="text-4xl font-semibold mb-8">Videos</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 px-4">
-            <div class="bg-white p-6 rounded-lg shadow-md">
-                <iframe width="100%" height="315" src="https://www.youtube.com/embed/VIDEO_ID_1" frameborder="0"
-                    allowfullscreen></iframe>
-            </div>
-            <div class="bg-white p-6 rounded-lg shadow-md">
-                <iframe width="100%" height="315" src="https://www.youtube.com/embed/VIDEO_ID_2" frameborder="0"
-                    allowfullscreen></iframe>
-            </div>
+    <footer class="bg-gray-800 text-white py-6">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2023 Pet Adoption. All rights reserved. | Follow us on <a href="URL_TO_FACEBOOK"
+                    class="underline">Facebook</a>, <a href="URL_TO_INSTAGRAM" class="underline">Instagram</a>, and <a
+                    href="URL_TO_TWITTER" class="underline">Twitter</a> | <a href="privacy_policy.html"
+                    class="underline">Privacy Policy</a> | <a href="terms_of_use.html" class="underline">Terms of
+                    Use</a>
+            </p>
         </div>
-    </div>
-</section>
-<section id="location" class="py-12 text-center">
-    <div class="container mx-auto">
-        <h2 class="text-4xl font-semibold mb-8">Visit Our Center</h2>
-        <div class="iframe-container mx-auto">
-            <iframe src="https://www.google.com/maps/embed?pb=...your_map_embed_url_here..." frameborder="0"
-                allowfullscreen></iframe>
-        </div>
-    </div>
-</section>
-
-
-<section id="contact" class="py-12 bg-contact bg-cover bg-center">
-    <div class="container mx-auto text-center">
-        <h2 class="text-4xl font-semibold mb-4">Contact Us</h2>
-        <form class="max-w-md mx-auto">
-            <div class="mb-4">
-                <label for="name" class="block text-gray-700 font-medium mb-2">Name</label>
-                <input type="text" id="name" name="name"
-                    class="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500" required>
-            </div>
-            <div class="mb-4">
-                <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
-                <input type="email" id="email" name="email"
-                    class="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500" required>
-            </div>
-            <div class="mb-6">
-                <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
-                <textarea id="message" name="message"
-                    class="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500" rows="4"
-                    required></textarea>
-            </div>
-            <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md button">Send
-                Message</button>
-        </form>
-    </div>
-</section>
-<section id="newsletter" class="py-12 bg-gray-100">
-    <div class="container mx-auto text-center">
-        <h2 class="text-4xl font-semibold mb-4">Subscribe to Our Newsletter</h2>
-        <p class="text-gray-700 mb-6">Stay updated with new arrivals, events, and adoption success stories!</p>
-        <form id="newsletterForm" class="max-w-md mx-auto">
-            <div class="flex items-center">
-                <input type="email" id="newsletterEmail" name="newsletterEmail"
-                    class="w-full px-4 py-2 border rounded-l-md focus:outline-none focus:border-blue-500"
-                    placeholder="Enter your email" required>
-                <button type="submit"
-                    class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-r-md button">Subscribe</button>
-            </div>
-        </form>
-    </div>
-</section>
-<section id="events" class="py-12 bg-gray-100">
-    <div class="container mx-auto text-center">
-        <h2 class="text-3xl font-semibold text-gray-800 mb-4">Upcoming Events</h2>
-        <div id="calendar" class="max-w-lg mx-auto"></div>
-        <p class="mt-4 text-gray-600">Stay informed about our upcoming events and join us in making a difference!</p>
-    </div>
-</section>
-
-
-<footer class="bg-gray-800 text-white py-6">
-    <div class="container mx-auto text-center">
-        <p>&copy; 2023 Pet Adoption. All rights reserved. | Follow us on <a href="URL_TO_FACEBOOK"
-                class="underline">Facebook</a>, <a href="URL_TO_INSTAGRAM" class="underline">Instagram</a>, and <a
-                href="URL_TO_TWITTER" class="underline">Twitter</a> | <a href="privacy_policy.html"
-                class="underline">Privacy Policy</a> | <a href="terms_of_use.html" class="underline">Terms of Use</a>
-        </p>
-    </div>
-</footer>
-<script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.js"></script>
-<script src="scripts.js"></script>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.js"></script>
+    <script src="scripts.js"></script>
 </body>
 
 </html>
