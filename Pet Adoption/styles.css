@@ -1,0 +1,94 @@
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Poppins", sans-serif;
+}
+.bg-about {
+  background-image: url("./img/bg1.jpg");
+}
+
+.bg-pets {
+  background-image: url("./img/bg2.jpg");
+}
+
+.bg-contact {
+  background-image: url("./img/bg3.jpg");
+}
+.bg-video {
+  background-image: url("./img/bg5.jpg");
+}
+header {
+  background-color: orangered;
+}
+
+header nav ul li a {
+  color: white;
+}
+#about {
+  background-color: #f7fafc;
+}
+
+#about p {
+  color: #718096;
+}
+
+#pets {
+  background-color: #edf2f7;
+}
+
+#contact {
+  background-color: #f7fafc;
+}
+footer {
+  background-color: #2d3748;
+  color: white;
+}
+footer a {
+  color: white;
+}
+.pet-card {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.pet-card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+.pet-card:hover {
+  transform: scale(1.05);
+}
+.button {
+  transition: background-color 0.3s, color 0.3s;
+  background-color: coral;
+  color: white;
+}
+
+.button:hover {
+  background-color: orangered;
+  color: white;
+}
+
+.accordion-toggle {
+  user-select: none;
+}
+
+.accordion-icon {
+  transition: transform 0.2s;
+}
+
+.accordion-content.active {
+  display: block;
+}
+
+.accordion-content {
+  display: none;
+}
+.iframe-container {
+  display: flex;
+  justify-content: center;
+}
