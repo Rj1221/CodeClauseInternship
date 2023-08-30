@@ -1,0 +1,7 @@
+.btn-plane {
+  transition: transform 0.3s ease-in-out;
+}
+
+.btn-plane:hover {
+  transform: scale(1.1);
+}
